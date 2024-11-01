@@ -2,7 +2,7 @@ const jokeForm = document.getElementById("jokeForm");
 const jokeTable = document.getElementById("jokeTable");
 
 async function getJokes() {
-  const response = await fetch("http://localhost:8080/jokes");
+  const response = await fetch("https://joke-emporium.onrender.com/jokes");
   const jokes = await response.json();
   console.log(jokes);
   for (let i = 0; i < jokes.length; i++) {
@@ -26,7 +26,7 @@ async function handleSubmit(e) {
   e.preventDefault();
   const formData = new FormData(jokeForm);
   const body = Object.fromEntries(formData);
-  const res = await fetch("http://localhost:8080/jokes", {
+  const res = await fetch("https://joke-emporium.onrender.com/jokes", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(body),
